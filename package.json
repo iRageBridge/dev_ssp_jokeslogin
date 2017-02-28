@@ -1,0 +1,22 @@
+{
+  "name": "dev_ssp_jokeslogin",
+  "version": "1.0.0",
+  "description": "Jokes login",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iRageBridge/dev_ssp_jokeslogin.git"
+  },
+  "author": "Simon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iRageBridge/dev_ssp_jokeslogin/issues"
+  },
+  "homepage": "https://github.com/iRageBridge/dev_ssp_jokeslogin#readme",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}
