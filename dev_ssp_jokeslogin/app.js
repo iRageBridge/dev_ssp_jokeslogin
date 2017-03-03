@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 var index = require('./routes/index');
-//var admin = require('./routes/admin');
+var admin = require('./routes/admin');
 
 var app = express();
 
@@ -22,6 +22,31 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/login', index);
+
+var loggedIn = function(req,res,next){
+  if(!req.session.username){
+    res.redirect('/login');
+  }
+  else{
+    next();
+  }
+};
+
+var jokesSetup = function (req,res,next){
+  if(!req.session.allJoked){
+    req.session.allJokes = new Array();
+  }
+  if(req.session.jokeCounter){
+    req.session.jokeCounter = 0;
+  }
+  nest();
+};
+
+app.use(jokesSetup);
+app.use(loggedIn);
+app.use('/admin',loggedIn);
+app.use('/admin', admin);
+//app.use('/', routes);
 
 var expressSession={
   secret:'aSecret',
