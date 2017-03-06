@@ -15,7 +15,8 @@ app.set('view engine', 'pug');
 var exSession = {
   secret:'mySecret',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  image: ''
 }
 app.use(session(exSession));
 

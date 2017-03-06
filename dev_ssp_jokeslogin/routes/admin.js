@@ -20,6 +20,7 @@ router.post('/newJoke', function(req,res,next){
     joke.id = req.session.jokeCounter++;
     joke.date = new Date();
     joke.joke = req.body.theJoke;
+    joke.image = req.body.jokeImage;
     req.session.allJokes.push(joke);
     res.redirect('/');
 });
