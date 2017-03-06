@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    - var formMethod = '/admin/newJoke'
+    - var jokeText = ''
+    
+    form(method='POST' action=formMethod)
+        label(for='theJoke') Enter your joke
+        textarea#theJoke.form-control(name='theJoke') #{jokeText}  
+          if joke
+            input(type='hidden' name='id' value='#{joke.id}')
+        input(type='submit' name='Add')

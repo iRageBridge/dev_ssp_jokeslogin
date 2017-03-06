@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    - var targetJoke = '/admin/delete/:joke.id}'
+
+    h1 Joke Creator
+    a(href='/admin/createJoke') Create a joke
+    for joke, i in jokes
+        p #{joke.joke}
+        a(href=targetJoke) Delete
+        hr

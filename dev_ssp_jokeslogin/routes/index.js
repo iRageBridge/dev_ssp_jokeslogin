@@ -1,9 +1,8 @@
-
 var express = require('express');
 var router = express.Router();
 
 router.get('/login', function(req, res, next) {
-  res.render('login');
+  res.render('login', {title: 'Jokes Table'});
 });
 
 router.post('/login', function(req,res,next){
@@ -14,16 +13,15 @@ router.post('/login', function(req,res,next){
     res.redirect('/login');
   }
   else{
-    //req.session.uName = username;
-    //req.session.pWord = password;
+    req.session.username = username;
+    req.session.password = password;
     res.redirect('/');
   }
 });
 
 router.get('/', function(req,res,next){
-  res.render('index',{
-    jokes: req.session.allJokes
-  });
+  res.render('jokeList',{jokes: req.session.allJokes}
+    );
 });
   /*
   if (!req.session.hasOwnProperty('jokeTest')) {
@@ -34,7 +32,6 @@ router.get('/', function(req,res,next){
     });
   }
 });
-
 router.post('/', function(req, res, next){
   var joke = {};
     joke.joke = req.body.joke;
